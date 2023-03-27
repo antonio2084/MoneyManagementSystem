@@ -5,6 +5,7 @@ public class MenuManager {
 		System.out.println("2.Delete Money");
 		System.out.println("3.Edit Money");
 		System.out.println("4.View Money");
-		System.out.println("5.Exit");
+		System.out.println("5.Show a menu");
+		System.out.println("6.Exit");
 	}
 }
