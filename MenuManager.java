@@ -15,27 +15,57 @@ public class MenuManager {
 		System.out.println("Select one number between 1~6 : ");
 		num = input.nextInt();
 		if(num ==1){
-			System.out.print("Input money: ");
-			int moneyin = input.nextInt();
-			System.out.print("How to use: ");
-			String HowToUse = input.next();
+			addMoney();
 		}
 		else if(num ==2){
-			System.out.print("Input money: ");
-			int moneyin = input.nextInt();
+			deleteMoney();
 		}
 		else if(num ==3){
-			System.out.print("Input money: ");
-			int moneyin = input.nextInt();
+			editMoney();
 		}
 		else if(num ==4){
-			System.out.print("Input money: ");
-			int moneyin = input.nextInt();
+			viewMoney();
 		}
 		else if(num ==5){
-			System.out.print("Input money: ");
-			int moneyin = input.nextInt();
+			continue;
 		}
 		}
 	}
+	public static void addMoney(){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input money: ");
+		int moneyin = input.nextInt();
+		System.out.print("How to use: ");
+		String howToUse = input.next();
+		System.out.print("When:(Ex : 20220701) ");
+		String when = input.next();
+	}
+	public static void deleteMoney(){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input money: ");
+		int moneyin = input.nextInt();
+		System.out.print("How to use: ");
+		String howToUse = input.next();
+		System.out.print("When:(Ex : 20220701) ");
+		String when = input.next();
+	}
+	public static void editMoney(){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input money: ");
+		int moneyin = input.nextInt();
+		System.out.print("How to use: ");
+		String howToUse = input.next();
+		System.out.print("When:(Ex : 20220701) ");
+		String when = input.next();
+	}
+	public static void viewMoney(){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input money: ");
+		int moneyin = input.nextInt();
+		System.out.print("How to use: ");
+		String howToUse = input.next();
+		System.out.print("When:(Ex : 20220701) ");
+		String when = input.next();
+	}
+	
 }
