@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import money.Money;
+
 import java.util.ArrayList;
 
 public class MoneyManager {
@@ -10,14 +13,38 @@ public class MoneyManager {
 	}
 	
 	public void addMoney(){
-        Money money = new Money();
+		int kind = 0;
+		while(kind != 1 && kind != 2) {
+		System.out.print("1. Won ");
+		System.out.print("2. Dollar");
+		System.out.print("Select num for Money Kind: ");
+		kind = input.nextInt();
+		if(kind == 1) {
+			Money money = new Money();
+			money.getUserInput(input);
+			moneys.add(money);
+			break;
+		}
+		else if(kind == 2) {
+			Money money = new Money();
+			money.getUserInput(input);
+			moneys.add(money);
+			break;
+		}
+		else {
+			System.out.print("Select num for Money Kind between 1 and 2: ");
+		}
+		
+	}
 		System.out.print("Input money: ");
-		money.moneyin = input.nextInt();
+		int moneyin = input.nextInt();
 		System.out.print("How to use: ");
-		money.howTouse = input.next();
+		String howTouse = input.next();
 		System.out.print("When:(Ex : 20220701) ");
-		money.when = input.next();
-		moneys.add(money);
+		String when = input.next();
+		
+        Money money = new Money(howTouse,moneyin,when);
+		
 	}
 	public void deleteMoney(){
 
@@ -25,7 +52,7 @@ public class MoneyManager {
 		int moneyin = input.nextInt();
 		int index = -1;
 		for(int i=0;i<moneys.size();i++) {
-			if (moneys.get(i).moneyin == moneyin) {
+			if (moneys.get(i).getMoneyin() == moneyin) {
 				index = i;
 				break;	
 			}
@@ -46,7 +73,7 @@ public class MoneyManager {
 		int moneyin = input.nextInt();
 		for(int i=0;i<moneys.size();i++) {
 		    Money money = moneys.get(i);
-			if (money.moneyin == moneyin) {
+			if (money.getMoneyin() == moneyin) {
 			int num = -1;
 			
 			while(num != 5){
@@ -59,15 +86,18 @@ public class MoneyManager {
 			    num = input.nextInt();
 			    if(num ==1){
 				    System.out.println("Input Money: ");
-				    money.moneyin = input.nextInt();
+				    moneyin = input.nextInt();
+				    money.setMoneyin(moneyin);
 			    }
 			    else if(num ==2){
 				    System.out.println("HowToUse: ");
-				    money.howTouse = input.next();
+				    String howTouse = input.next();
+				    money.setHowTouse(howTouse);
 			    }
 			    else if(num ==3){
 				    System.out.println("When: ");
-				    money.when = input.next();
+				    String when = input.next();
+				    money.setWhen(when);
 			    }
 			    else {
 				continue;
@@ -82,6 +112,7 @@ public class MoneyManager {
 
 //		System.out.print("Input money: ");
 //		int moneyin = input.nextInt();
+		System.out.println("#of registered money : " + moneys.size()); 
 		for(int i=0;i<moneys.size();i++) {
 	        moneys.get(i).printInfo();
 	    }		
