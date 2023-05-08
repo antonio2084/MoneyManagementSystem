@@ -2,7 +2,7 @@ package money;
 
 public enum MoneyKind {
 	WON,
-	DollAR,
+	DOllAR,
 	YEN,
 	EURO
 }

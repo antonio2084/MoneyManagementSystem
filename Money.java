@@ -11,13 +11,26 @@ public class Money {
     public Money() {
     
     }
-    public Money(int money) {
-    	this.moneyin = money;
+    
+    public Money(MoneyKind kind) {
+        this.kind = kind;
     }
     
-    public Money(String howTouse, int money, String when) {
+    public Money(String howTouse,int moneyin) {
+    	this.moneyin = moneyin;
+    	this.howTouse = howTouse;
+    }
+     
+    public Money(String howTouse, int moneyin, String when) {
     	this.howTouse =howTouse;
-    	this.moneyin = money;
+    	this.moneyin = moneyin;
+    	this.when = when;
+    }
+    
+    public Money(MoneyKind kind, String howTouse, int moneyin, String when) {
+    	this.kind = kind;
+    	this.howTouse =howTouse;
+    	this.moneyin = moneyin;
     	this.when = when;
     }
     
@@ -46,8 +59,26 @@ public class Money {
 		this.when = when;
 	}
 
+	
     public void printInfo() {
-    	System.out.println("Money : "+moneyin+"HowToUse : "+howTouse+"When : "+when);
+    	String skind = "none";
+    	switch(this.kind) {
+    	case WON:
+    		skind = "Won";
+    		break;
+    	case DOllAR:
+    		skind = "Dollar";
+    		break;
+    	case YEN:
+    		skind = "Yen";
+    		break;
+    	case EURO:
+    		skind = "Euro";
+    		break;
+    	default:
+    		
+    	}
+    	System.out.println("kind : "+ skind + " Money : "+moneyin+" HowToUse : "+howTouse+" When : "+when);
     }
     
     public void getUserInput(Scanner input) {
