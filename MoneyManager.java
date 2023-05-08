@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 import money.Money;
+import money.MoneyKind;
 
 import java.util.ArrayList;
 
@@ -15,18 +16,25 @@ public class MoneyManager {
 	public void addMoney(){
 		int kind = 0;
 		while(kind != 1 && kind != 2) {
-		System.out.print("1. Won ");
-		System.out.print("2. Dollar");
-		System.out.print("Select num for Money Kind: ");
+		System.out.println("1. Won ");
+		System.out.println("2. Dollar");
+		System.out.println("3. Euro");
+		System.out.println(" Select num 1,2 or 3 for Money Kind: ");
 		kind = input.nextInt();
 		if(kind == 1) {
-			Money money = new Money();
+			Money money = new Money(MoneyKind.WON); 
 			money.getUserInput(input);
 			moneys.add(money);
 			break;
 		}
 		else if(kind == 2) {
-			Money money = new Money();
+			Money money = new Money(MoneyKind.DOllAR);
+			money.getUserInput(input);
+			moneys.add(money);
+			break;
+		}
+		else if(kind == 3) {
+			Money money = new Money(MoneyKind.EURO);
 			money.getUserInput(input);
 			moneys.add(money);
 			break;
