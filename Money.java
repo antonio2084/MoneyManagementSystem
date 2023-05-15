@@ -2,7 +2,7 @@ package money;
 
 import java.util.Scanner;
 
-public class Money {
+public abstract class Money {
 	protected MoneyKind kind = MoneyKind.WON;
     protected String howTouse;
     protected int moneyin;
@@ -60,26 +60,7 @@ public class Money {
 	}
 
 	
-    public void printInfo() {
-    	String skind = "none";
-    	switch(this.kind) {
-    	case WON:
-    		skind = "Won";
-    		break;
-    	case DOllAR:
-    		skind = "Dollar";
-    		break;
-    	case YEN:
-    		skind = "Yen";
-    		break;
-    	case EURO:
-    		skind = "Euro";
-    		break;
-    	default:
-    		
-    	}
-    	System.out.println("kind : "+ skind + " Money : "+moneyin+" HowToUse : "+howTouse+" When : "+when);
-    }
+    public abstract void printInfo(); 
     
     public void getUserInput(Scanner input) {
     	System.out.print("Input money: ");

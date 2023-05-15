@@ -2,10 +2,17 @@ package money;
 
 import java.util.Scanner;
 
-public class Euro extends Money {
+public class Euro extends Money implements MoneyInput {
 
-	protected String howTouseTrip;
-	protected String whenTrip;
+	public Euro(MoneyKind euro) {
+		super(euro);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	//protected String howTouseTrip;
+	//protected String whenTrip;
+
 	
 	public void getUserInput(Scanner input) {
 		

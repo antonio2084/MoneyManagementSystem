@@ -1,12 +1,16 @@
 import java.util.Scanner;
 
+import money.DoLLar;
+import money.Euro;
 import money.Money;
+import money.MoneyInput;
 import money.MoneyKind;
+import money.Won;
 
 import java.util.ArrayList;
 
 public class MoneyManager {
-	ArrayList<Money> moneys = new ArrayList<Money>();
+	ArrayList<MoneyInput> moneys = new ArrayList<MoneyInput>();
 	Scanner input;
 	
 	MoneyManager(Scanner input){
@@ -15,6 +19,7 @@ public class MoneyManager {
 	
 	public void addMoney(){
 		int kind = 0;
+		MoneyInput moneyInput;
 		while(kind != 1 && kind != 2) {
 		System.out.println("1. Won ");
 		System.out.println("2. Dollar");
@@ -22,21 +27,21 @@ public class MoneyManager {
 		System.out.println(" Select num 1,2 or 3 for Money Kind: ");
 		kind = input.nextInt();
 		if(kind == 1) {
-			Money money = new Money(MoneyKind.WON); 
-			money.getUserInput(input);
-			moneys.add(money);
+			moneyInput = new Won(MoneyKind.WON); 
+			moneyInput.getUserInput(input);
+			moneys.add(moneyInput);
 			break;
 		}
 		else if(kind == 2) {
-			Money money = new Money(MoneyKind.DOllAR);
-			money.getUserInput(input);
-			moneys.add(money);
+			moneyInput = new DoLLar(MoneyKind.DOllAR);
+			moneyInput.getUserInput(input);
+			moneys.add(moneyInput);
 			break;
 		}
 		else if(kind == 3) {
-			Money money = new Money(MoneyKind.EURO);
-			money.getUserInput(input);
-			moneys.add(money);
+			moneyInput = new Euro(MoneyKind.EURO);
+			moneyInput.getUserInput(input);
+			moneys.add(moneyInput);
 			break;
 		}
 		else {
@@ -80,8 +85,8 @@ public class MoneyManager {
 		System.out.print("Input money: ");
 		int moneyin = input.nextInt();
 		for(int i=0;i<moneys.size();i++) {
-		    Money money = moneys.get(i);
-			if (money.getMoneyin() == moneyin) {
+		    MoneyInput moneyInput = moneys.get(i);
+			if (moneyInput.getMoneyin() == moneyin) {
 			int num = -1;
 			
 			while(num != 5){
@@ -95,17 +100,17 @@ public class MoneyManager {
 			    if(num ==1){
 				    System.out.println("Input Money: ");
 				    moneyin = input.nextInt();
-				    money.setMoneyin(moneyin);
+				    moneyInput.setMoneyin(moneyin);
 			    }
 			    else if(num ==2){
 				    System.out.println("HowToUse: ");
 				    String howTouse = input.next();
-				    money.setHowTouse(howTouse);
+				    moneyInput.setHowTouse(howTouse);
 			    }
 			    else if(num ==3){
 				    System.out.println("When: ");
 				    String when = input.next();
-				    money.setWhen(when);
+				    moneyInput.setWhen(when);
 			    }
 			    else {
 				continue;
